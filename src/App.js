@@ -52,34 +52,32 @@ function App() {
       <>
         <h2>Round {num}</h2>
         
-        {
-          num === 1 &&
+        {num === 1 &&
           <>
-            <p>Match 1: <br/> {round1[0] && findNames(round1[0][0]) + 
-              " vs " + findNames(round1[0][1])}</p> 
-            <p>Match 2: <br/> {round1[1] && findNames(round1[1][0]) + 
-              " vs " + findNames(round1[1][1])}</p>
-            <p>Match 3: <br/> {round1[2] && findNames(round1[2][0]) + 
-              " vs " + findNames(round1[2][1])}</p>
+            {
+              round1.map((match, index) => {
+                return(
+                <p>Match {index+1}: <br/> {round1[index] && findNames(round1[index][0]) + 
+                  " vs " + findNames(round1[index][1])}</p> 
+                )
+              })
+            }
             <p></p>
           </>
         }
-        {
-          num === 2 &&
-          
+        {num === 2 &&
           <>
-
-            <p>Match 1: <br/> {round2[0] && findNames(round2[0][0]) + 
-              " vs " + findNames(round2[0][1])}</p> 
-            <p>Match 2: <br/> {round2[1] && findNames(round2[1][0]) + 
-              " vs " + findNames(round2[1][1])}</p>
-            <p>Match 3: <br/> {round2[2] && findNames(round2[2][0]) + 
-              " vs " + findNames(round2[2][1])}</p>
-            <p></p>
+            {
+              round2.map((match, index) => {
+                return(
+                <p>Match {index+1}: <br/> {round2[index] && findNames(round2[index][0]) + 
+                  " vs " + findNames(round2[index][1])}</p> 
+                )
+              })
+            }
           <p></p>
           </>
         }
-
       </>
     )
   }
