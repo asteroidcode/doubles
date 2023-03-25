@@ -6,21 +6,7 @@ import * as tables from './Tables/tables.js';
 
 function App() {
 
-
-  const [name1, setName1] = useState("Janeway");
-  const [name2, setName2] = useState("Sisko");
-  const [name3, setName3] = useState("P03");
-  const [name4, setName4] = useState("P04");
-  const [name5, setName5] = useState("P05");
-  const [name6, setName6] = useState("P06");
-  const [name7, setName7] = useState("P07");
-  const [name8, setName8] = useState("P08");
-  const [name9, setName9] = useState("P09");
-  const [name10, setName10] = useState("P10");
-  const [name11, setName11] = useState("P11");
-  const [name12, setName12] = useState("P12");
-
-  const [names, setNames] = useState(["", name1, name2, name3, name4, name5, name6, name7, name8, name9, name10, name11, name12]);
+  const [names, setNames] = useState([]);
 
 
   const [r01m01, setR01m01] = useState(null);
@@ -46,7 +32,7 @@ function App() {
   useEffect(() => {
     setMatches(tables.arr12row1);
     setMatches(tables.arr12row2);
-    setNames(["", name1, name2, name3, name4, name5, name6, name7, name8, name9, name10, name11, name12]);
+    setNames(["", "Janeway", "Sisko", "", "", "", "", "", "", "", "", "", ""]);
     
     //console.log("names", names);
   }, []);
@@ -54,11 +40,18 @@ function App() {
   const findNames = (slot) => {
     //console.log("slot", slot);
     const firstNameNum = slot.substring(0, slot.indexOf("-"));
+    console.log("firstNameNum", firstNameNum);
     const secondNameNum = slot.slice(slot.indexOf('-') + 1);
     //console.log("firstNameNum", firstNameNum);
-    const firstName = names[firstNameNum];
+    let firstName = names[firstNameNum];
+    if (firstName === "") {
+      firstName = "P" + firstNameNum;
+    }
     //console.log("firstName", firstName);
-    const secondName = names[secondNameNum];
+    let secondName = names[secondNameNum];
+    if (secondName === "") {
+      secondName = "P" + secondNameNum;
+    }
     return firstName + " & " + secondName;
   }
 
