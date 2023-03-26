@@ -47,37 +47,18 @@ function App() {
     return firstName + " & " + secondName;
   }
 
-  const Round = ({num}) => {
+  const Round = ({num, round}) => {
     return(
       <>
         <h2>Round {num}</h2>
-        
-        {num === 1 &&
-          <>
-            {
-              round1.map((match, index) => {
-                return(
-                <p>Match {index+1}: <br/> {round1[index] && findNames(round1[index][0]) + 
-                  " vs " + findNames(round1[index][1])}</p> 
-                )
-              })
-            }
-            <p></p>
-          </>
-        }
-        {num === 2 &&
-          <>
-            {
-              round2.map((match, index) => {
-                return(
-                <p>Match {index+1}: <br/> {round2[index] && findNames(round2[index][0]) + 
-                  " vs " + findNames(round2[index][1])}</p> 
-                )
-              })
-            }
-          <p></p>
-          </>
-        }
+          { round.map((match, index) => {
+              return(
+                <p key={index}>Match {index+1}: <br/> {round[index] && findNames(round[index][0]) + 
+                " vs " + findNames(round[index][1])}</p> 
+              )
+            })
+          }
+        <p></p>
       </>
     )
   }
@@ -89,8 +70,8 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
        
 
-        <Round num={1}/>
-        <Round num={2}/>
+        <Round num={1} round={round1}/>
+        <Round num={2} round={round2}/>
 
 
         <a
