@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import React, {useState, useEffect} from 'react';
 import * as tables from './Tables/tables.js';
-
+import { RoundInput } from './Inputs/RoundInput';
 
 function App() {
 
@@ -11,6 +11,8 @@ function App() {
 
   const [round1, setRound1] = useState([]);
   const [round2, setRound2] = useState([]);
+
+  const [amountOfRounds, setAmountOfRounds] = useState(1);
   
   const setMatches = (arrRow) => {
     if (arrRow === tables.arr12row1) {
@@ -22,24 +24,27 @@ function App() {
   }
 
   useEffect(() => {
-    setMatches(tables.arr12row1);
-    setMatches(tables.arr12row2);
+    if (amountOfRounds === 1) {
+      setMatches(tables.arr12row1);
+    }
+    if (amountOfRounds === 2) {
+      setMatches(tables.arr12row1);
+      setMatches(tables.arr12row2);
+    }
+    if (amountOfRounds > 2) {
+      setMatches(tables.arr12row1);
+      setMatches(tables.arr12row2)
+    }
     setNames(["", "Janeway", "Sisko", "", "", "", "", "", "", "", "", "", ""]);
-    console.log("round1", round1)
-    //console.log("names", names);
   }, []);
 
   const findNames = (slot) => {
-    console.log("slot", slot);
     const firstNameNum = slot.substring(0, slot.indexOf("-"));
-    console.log("firstNameNum", firstNameNum);
     const secondNameNum = slot.slice(slot.indexOf('-') + 1);
-    //console.log("firstNameNum", firstNameNum);
     let firstName = names[firstNameNum];
     if (firstName === "") {
       firstName = "P" + firstNameNum;
     }
-    //console.log("firstName", firstName);
     let secondName = names[secondNameNum];
     if (secondName === "") {
       secondName = "P" + secondNameNum;
@@ -69,9 +74,11 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
        
+        <RoundInput setRound={(r) => setAmountOfRounds(r)}/>
 
-        <Round num={1} round={round1}/>
-        <Round num={2} round={round2}/>
+
+        {amountOfRounds === 1 && <Round num={1} round={round1}/>}
+        {amountOfRounds === 2 && <><Round num={1} round={round1}/><Round num={2} round={round2}/></>}
 
 
         <a
