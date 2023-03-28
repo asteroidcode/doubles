@@ -36,8 +36,8 @@ function App() {
       setMatches(tables.arr12row1);
       setMatches(tables.arr12row2)
     }
-    setNames(["", "Janeway", "Sisko", "", "", "", "", "", "", "", "", "", ""]);
-  }, []);
+    
+  }, [amountOfRounds]);
 
   const findNames = (slot) => {
     const firstNameNum = slot.substring(0, slot.indexOf("-"));
@@ -59,7 +59,7 @@ function App() {
         <h2>Round {num}</h2>
           { round.map((match, index) => {
               return(
-                <p key={index}>Match {index+1}: <br/> {round[index] && findNames(round[index][0]) + 
+                <p key={"rounds" + index}>Match {index+1}: <br/> {round[index] && findNames(round[index][0]) + 
                 " vs " + findNames(round[index][1])}</p> 
               )
             })
@@ -93,7 +93,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          This app is based on Berger's Tables
+          Based on Berger's Tables
         </a>
         <p>
         </p>

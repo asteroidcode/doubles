@@ -63,7 +63,7 @@ export const NamesInput = ({setNamesCallback}) => {
         <div key={"jtn" + index}>
         
         <TextField 
-          style={{marginTop:"4px"}}
+          margin="normal"
           id={"outlined-" + index} 
           label="Name" 
           variant="outlined" 
