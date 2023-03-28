@@ -3,6 +3,7 @@ import './App.css';
 import React, {useState, useEffect} from 'react';
 import * as tables from './Tables/tables.js';
 import { RoundInput } from './Inputs/RoundInput';
+import { NamesInput } from './Inputs/NamesInput';
 
 function App() {
 
@@ -68,19 +69,24 @@ function App() {
     )
   }
 
+  const setNamesCallback = (names) => {
+    setNames(["", ...names]);
+  }
 
   return (
     <div className="App">
       <header className="App-header">
+        <header>Best Doubles Sorter App Thingy EVAR</header>
         <img src={logo} className="App-logo" alt="logo" />
        
+        <NamesInput setNamesCallback={(names) => setNamesCallback(names)}/>
         <RoundInput setRound={(r) => setAmountOfRounds(r)}/>
 
 
         {amountOfRounds === 1 && <Round num={1} round={round1}/>}
         {amountOfRounds === 2 && <><Round num={1} round={round1}/><Round num={2} round={round2}/></>}
 
-
+        <p><br/><br/></p>
         <a
           className="App-link"
           href="https://fr.wikipedia.org/wiki/Table_de_Berger"
