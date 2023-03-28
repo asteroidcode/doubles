@@ -4,8 +4,13 @@ import React, {useState, useEffect} from 'react';
 import * as tables from './Tables/tables.js';
 import { RoundInput } from './Inputs/RoundInput';
 import { NamesInput } from './Inputs/NamesInput';
+import {red} from "@mui/material/colors";
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 function App() {
+
+  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
 
   const [names, setNames] = useState([]);
   const [rounds, setRounds] = useState([]);
@@ -15,6 +20,15 @@ function App() {
 
   const [amountOfRounds, setAmountOfRounds] = useState(1);
   
+  const theme = createTheme({
+    palette: {
+      mode: prefersDarkMode ? 'dark' : 'light',
+      primary: {
+        main: red[500]
+      }
+    }
+  })
+
   const setMatches = (arrRow) => {
     if (arrRow === tables.arr12row1) {
       setRound1([[tables.arr12row1[0], tables.arr12row1[1]], [tables.arr12row1[2], tables.arr12row1[3]], [tables.arr12row1[4], tables.arr12row1[5]]]);
@@ -74,6 +88,7 @@ function App() {
   }
 
   return (
+    <ThemeProvider theme={theme}>
     <div className="App">
       <header className="App-header">
         <header>Best Doubles Sorter App Thingy EVAR</header>
@@ -99,6 +114,7 @@ function App() {
         </p>
       </header>
     </div>
+    </ThemeProvider>
   );
 }
 
