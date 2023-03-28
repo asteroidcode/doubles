@@ -4,7 +4,7 @@ import React, {useState, useEffect} from 'react';
 import * as tables from './Tables/tables.js';
 import { RoundInput } from './Inputs/RoundInput';
 import { NamesInput } from './Inputs/NamesInput';
-import {red} from "@mui/material/colors";
+import {blue} from "@mui/material/colors";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
@@ -24,7 +24,7 @@ function App() {
     palette: {
       mode: prefersDarkMode ? 'dark' : 'light',
       primary: {
-        main: red[500]
+        main: blue[500]
       }
     }
   })

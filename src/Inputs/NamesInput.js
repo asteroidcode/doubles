@@ -66,13 +66,12 @@ export const NamesInput = ({setNamesCallback}) => {
           color="primary"
           margin="normal"
           id={"outlined-" + index} 
-          label="Name" 
+          label={"P" + (index+1) + " Name"} 
           variant="outlined" 
           autoComplete="off"
           value={name} 
           onChange={(event) => {setName(event.target.value, index)}}
         />
-        <span> P{index+1}</span>
         </div>
       )
     })}
