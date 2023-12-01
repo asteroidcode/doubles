@@ -17,6 +17,10 @@ function App() {
 
   const [round1, setRound1] = useState([]);
   const [round2, setRound2] = useState([]);
+  const [round3, setRound3] = useState([]);
+  const [round4, setRound4] = useState([]);
+  const [round5, setRound5] = useState([]);
+  const [round6, setRound6] = useState([]);
 
   const [amountOfRounds, setAmountOfRounds] = useState(1);
   
@@ -29,7 +33,7 @@ function App() {
     }
   })
 
-  const setMatches = (arrRow) => {
+  const setMatches12 = (arrRow) => {
     if (arrRow === tables.arr12row1) {
       setRound1([[tables.arr12row1[0], tables.arr12row1[1]], [tables.arr12row1[2], tables.arr12row1[3]], [tables.arr12row1[4], tables.arr12row1[5]]]);
     }
@@ -38,17 +42,60 @@ function App() {
     }
   }
 
+  const setMatches = (arrRow) => {
+    if (arrRow === tables.arr16row1) {
+      setRound1([[tables.arr16row1[0], tables.arr16row1[1]], [tables.arr16row1[2], tables.arr16row1[3]], [tables.arr16row1[4], tables.arr16row1[5]], [tables.arr16row1[6], tables.arr16row1[7]]]);
+    }
+    if (arrRow === tables.arr16row2) {
+      setRound2([[tables.arr16row2[0], tables.arr16row2[1]], [tables.arr16row2[2], tables.arr16row2[3]], [tables.arr16row2[4], tables.arr16row2[5]], [tables.arr16row2[6], tables.arr16row2[7]]]);
+    }
+    if (arrRow === tables.arr16row3) {
+      setRound3([[tables.arr16row3[0], tables.arr16row3[1]], [tables.arr16row3[2], tables.arr16row3[3]], [tables.arr16row3[4], tables.arr16row3[5]], [tables.arr16row3[6], tables.arr16row3[7]]]);
+    }
+    if (arrRow === tables.arr16row4) {
+      setRound4([[tables.arr16row4[0], tables.arr16row4[1]], [tables.arr16row4[2], tables.arr16row4[3]], [tables.arr16row4[4], tables.arr16row4[5]], [tables.arr16row4[6], tables.arr16row4[7]]]);
+    }
+    if (arrRow === tables.arr16row5) {
+      setRound5([[tables.arr16row5[0], tables.arr16row5[1]], [tables.arr16row5[2], tables.arr16row5[3]], [tables.arr16row5[4], tables.arr16row5[5]], [tables.arr16row5[6], tables.arr16row5[7]]]);
+    }
+    if (arrRow === tables.arr16row6) {
+      setRound6([[tables.arr16row6[0], tables.arr16row6[1]], [tables.arr16row6[2], tables.arr16row6[3]], [tables.arr16row6[4], tables.arr16row6[5]], [tables.arr16row6[6], tables.arr16row6[7]]]);
+    }
+  }
+
   useEffect(() => {
     if (amountOfRounds === 1) {
-      setMatches(tables.arr12row1);
+      setMatches(tables.arr16row1);
     }
     if (amountOfRounds === 2) {
-      setMatches(tables.arr12row1);
-      setMatches(tables.arr12row2);
+      setMatches(tables.arr16row1);
+      setMatches(tables.arr16row2);
     }
-    if (amountOfRounds > 2) {
-      setMatches(tables.arr12row1);
-      setMatches(tables.arr12row2)
+    if (amountOfRounds === 3) {
+      setMatches(tables.arr16row1);
+      setMatches(tables.arr16row2);
+      setMatches(tables.arr16row3);
+    }
+    if (amountOfRounds === 4) {
+      setMatches(tables.arr16row1);
+      setMatches(tables.arr16row2);
+      setMatches(tables.arr16row3);
+      setMatches(tables.arr16row4);
+    }
+    if (amountOfRounds === 5) {
+      setMatches(tables.arr16row1);
+      setMatches(tables.arr16row2);
+      setMatches(tables.arr16row3);
+      setMatches(tables.arr16row4);
+      setMatches(tables.arr16row5);
+    }
+    if (amountOfRounds === 6) {
+      setMatches(tables.arr16row1);
+      setMatches(tables.arr16row2);
+      setMatches(tables.arr16row3);
+      setMatches(tables.arr16row4);
+      setMatches(tables.arr16row5);
+      setMatches(tables.arr16row6);
     }
     
   }, [amountOfRounds]);
@@ -68,6 +115,7 @@ function App() {
   }
 
   const Round = ({num, round}) => {
+    console.log("num, round", num, round);
     return(
       <>
         <h2>Round {num}</h2>
@@ -92,14 +140,18 @@ function App() {
     <div className="App">
       <header className="App-header">
         <header>Best Doubles Sorter App Thingy EVAR</header>
-        <img src={logo} className="App-logo" alt="logo" />
-       
+        <header>(For 16 players)</header>
+
         <NamesInput setNamesCallback={(names) => setNamesCallback(names)}/>
         <RoundInput setRound={(r) => setAmountOfRounds(r)}/>
 
 
         {amountOfRounds === 1 && <Round num={1} round={round1}/>}
         {amountOfRounds === 2 && <><Round num={1} round={round1}/><Round num={2} round={round2}/></>}
+        {amountOfRounds === 3 && <><Round num={1} round={round1}/><Round num={2} round={round2}/><Round num={3} round={round3}/></>}
+        {amountOfRounds === 4 && <><Round num={1} round={round1}/><Round num={2} round={round2}/><Round num={3} round={round3}/><Round num={4} round={round4}/></>}
+        {amountOfRounds === 5 && <><Round num={1} round={round1}/><Round num={2} round={round2}/><Round num={3} round={round3}/><Round num={4} round={round4}/><Round num={5} round={round5}/></>}
+        {amountOfRounds === 6 && <><Round num={1} round={round1}/><Round num={2} round={round2}/><Round num={3} round={round3}/><Round num={4} round={round4}/><Round num={5} round={round5}/><Round num={6} round={round6}/></>}
 
         <p><br/><br/></p>
         <a

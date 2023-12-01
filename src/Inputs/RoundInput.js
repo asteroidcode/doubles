@@ -36,6 +36,10 @@ export const RoundInput = ({setRound}) => {
         <MenuItem value={10}>10</MenuItem>
         <MenuItem value={11}>11</MenuItem>
         <MenuItem value={12}>12</MenuItem>
+        <MenuItem value={13}>13</MenuItem>
+        <MenuItem value={14}>14</MenuItem>
+        <MenuItem value={15}>15</MenuItem>
+        <MenuItem value={16}>16</MenuItem>
       </Select>
     </FormControl>
   )
