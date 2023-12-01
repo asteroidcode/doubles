@@ -15,7 +15,7 @@ export const RoundInput = ({setRound}) => {
   }
 
   return(
-    <FormControl variant="filled" sx={{ m: 1, minWidth: 80}}>
+    <FormControl variant="filled" sx={{ m: 1, minWidth: 80}} style={{marginTop: "40px"}}>
       <InputLabel id="round-number-insert">Rounds</InputLabel>
       <Select
         labelId="round-number-label"
@@ -39,7 +39,6 @@ export const RoundInput = ({setRound}) => {
         <MenuItem value={13}>13</MenuItem>
         <MenuItem value={14}>14</MenuItem>
         <MenuItem value={15}>15</MenuItem>
-        <MenuItem value={16}>16</MenuItem>
       </Select>
     </FormControl>
   )

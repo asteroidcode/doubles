@@ -14,6 +14,8 @@ export const NamesNumberInput = ({setNamesNbr}) => {
     setNamesNbr(event.target.value);
   }
 
+  return(null);
+  {/*
   return(
     <FormControl variant="filled" sx={{ m: 1, minWidth: 80}}>
       <InputLabel id="names-number-insert">Participants</InputLabel>
@@ -31,4 +33,5 @@ export const NamesNumberInput = ({setNamesNbr}) => {
       </Select>
     </FormControl>
   )
+  */}
 }
