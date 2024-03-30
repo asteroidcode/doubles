@@ -29,11 +29,11 @@ export const NamesInput = ({setNamesCallback}) => {
   }
 
   const processParticipantNumberChange = (nbr) => {
-    console.log("nbr", nbr);
+    // console.log("nbr", nbr);
     let newNames = [...names];
     if (newNames.length < nbr) {
       const namesShorterBy = nbr - newNames.length;
-      console.log("namesShorterBy", namesShorterBy);
+      // console.log("namesShorterBy", namesShorterBy);
       for (let i = 0; i < namesShorterBy; i++ ) {
         newNames.push([""]);
       }
@@ -44,7 +44,7 @@ export const NamesInput = ({setNamesCallback}) => {
         newNames.pop();
       }
     }
-    console.log("newNames", newNames);
+    // console.log("newNames", newNames);
     setNames(newNames);
   }
 

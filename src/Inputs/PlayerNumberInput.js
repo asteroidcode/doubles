@@ -30,8 +30,8 @@ export const PlayerNumberInput = ({setPlayerCount}) => {
         <MenuItem value={15}>15</MenuItem>
         <MenuItem value={16}>16</MenuItem>
         <MenuItem value={17}>17</MenuItem>
-        <MenuItem value={17}>18</MenuItem>
-        <MenuItem value={17}>19</MenuItem>
+        <MenuItem value={18}>18</MenuItem>
+        <MenuItem value={19}>19</MenuItem>
       </Select>
     </FormControl>
   )

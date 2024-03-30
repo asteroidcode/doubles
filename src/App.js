@@ -10,6 +10,12 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 // import Button from '@mui/material/Button';
 import { Typography } from '@mui/material';
 // import useMediaQuery from '@mui/material/useMediaQuery';
+import { change3PlayerTable12 } from './PlayerReplacements/Players12/12players3extras.js';
+import { change2PlayerTable12 } from './PlayerReplacements/Players12/12players2extras.js'
+import { change1PlayerTable12 } from './PlayerReplacements/Players12/12player1extra.js';
+import { change1PlayerTable16 } from './PlayerReplacements/Players16/16player1extra.js';
+import { change2PlayerTable16 } from './PlayerReplacements/Players16/16player2extras.js';
+import { change3PlayerTable16 } from './PlayerReplacements/Players16/16player3extras.js';
 
 function App() {
 
@@ -64,281 +70,49 @@ function App() {
     }
   })
 
-  const change1PlayerTable12 = (round, firstNameNum, secondNameNum) => {
-    
-    let firstNameNumX = firstNameNum;
-    let secondNameNumX = secondNameNum;
-
-    // console.log("HERE", round, firstNameNumX, secondNameNumX)
-
-    // player 13 sits out first round
-    if (round !== 1) {
-      if (firstNameNum === round.toString()) {
-        firstNameNumX = "13";
-      }
-
-      if (secondNameNum === round.toString()) {
-        secondNameNumX = "13";
-      }
-    }
-    // console.log("firstsecond", firstNameNumX, secondNameNumX);
-
-    return ([firstNameNumX, secondNameNumX]);
-  }
-
-  const change2PlayerTable12 = (round, firstNameNum, secondNameNum) => {
-    
-    let firstNameNumX = firstNameNum;
-    let secondNameNumX = secondNameNum;
-
-    // console.log("HERE", round, firstNameNumX, secondNameNumX)
-
-    // first round, 13 and 14 are sitting out
-    if (round === 2 || round === 8) {
-
-      if (firstNameNum === "1") {
-        firstNameNumX = "13";
-      }
-      else if (firstNameNum === "2") {
-        firstNameNumX = "14";
-      }
-
-      if (secondNameNum === "1") {
-        secondNameNumX = "13";
-      }
-      else if (secondNameNum === "2") {
-        secondNameNumX = "14";
-      }
-    }
-
-    if (round === 3 || round === 9) {
-
-      if (firstNameNum === "3") {
-        firstNameNumX = "13";
-      }
-      else if (firstNameNum === "4") {
-        firstNameNumX = "14";
-      }
-
-      if (secondNameNum === "3") {
-        secondNameNumX = "13";
-      }
-      else if (secondNameNum === "4") {
-        secondNameNumX = "14";
-      }
-    }
-
-    if (round === 4 || round === 10) {
-
-      if (firstNameNum === "5") {
-        firstNameNumX = "13";
-      }
-      else if (firstNameNum === "6") {
-        firstNameNumX = "14";
-      }
-
-      if (secondNameNum === "5") {
-        secondNameNumX = "13";
-      }
-      else if (secondNameNum === "6") {
-        secondNameNumX = "14";
-      }
-    }
-
-    if (round === 5 || round === 11) {
-
-      if (firstNameNum === "7") {
-        firstNameNumX = "13";
-      }
-      else if (firstNameNum === "8") {
-        firstNameNumX = "14";
-      }
-
-      if (secondNameNum === "7") {
-        secondNameNumX = "13";
-      }
-      else if (secondNameNum === "8") {
-        secondNameNumX = "14";
-      }
-    }
-
-    if (round === 6) {
-
-      if (firstNameNum === "9") {
-        firstNameNumX = "13";
-      }
-      else if (firstNameNum === "10") {
-        firstNameNumX = "14";
-      }
-
-      if (secondNameNum === "9") {
-        secondNameNumX = "13";
-      }
-      else if (secondNameNum === "10") {
-        secondNameNumX = "14";
-      }
-    }
-
-    if (round === 7) {
-
-      if (firstNameNum === "11") {
-        firstNameNumX = "13";
-      }
-      else if (firstNameNum === "12") {
-        firstNameNumX = "14";
-      }
-
-      if (secondNameNum === "11") {
-        secondNameNumX = "13";
-      }
-      else if (secondNameNum === "12") {
-        secondNameNumX = "14";
-      }
-    }
-    
-    // console.log("firstsecond", firstNameNumX, secondNameNumX);
-
-    return ([firstNameNumX, secondNameNumX]);
-  }
-
-  const change3PlayerTable12 = (round, firstNameNum, secondNameNum) => {
-    
-    let firstNameNumX = firstNameNum;
-    let secondNameNumX = secondNameNum;
-
-    // console.log("HERE", round, firstNameNumX, secondNameNumX)
-
-    // 13 14 15 sit out rounds 1 and 6
-    if (round === 2 || round === 7 || round === 11) {
-
-      if (firstNameNum === "1") {
-        firstNameNumX = "13";
-      }
-      else if (firstNameNum === "2") {
-        firstNameNumX = "14";
-      }
-      else if (firstNameNum === "3") {
-        firstNameNumX = "15"
-      }
-
-      if (secondNameNum === "1") {
-        secondNameNumX = "13";
-      }
-      else if (secondNameNum === "2") {
-        secondNameNumX = "14";
-      }
-      else if (secondNameNum === "3") {
-        secondNameNumX = "15"
-      }
-    }
-
-    if (round === 3 || round === 8) {
-
-      if (firstNameNum === "4") {
-        firstNameNumX = "13";
-      }
-      else if (firstNameNum === "5") {
-        firstNameNumX = "14";
-      }
-      else if (firstNameNum === "6") {
-        firstNameNumX = "15"
-      }
-
-      if (secondNameNum === "4") {
-        secondNameNumX = "13";
-      }
-      else if (secondNameNum === "5") {
-        secondNameNumX = "14";
-      }
-      else if (secondNameNum === "6") {
-        secondNameNumX = "15"
-      }
-    }
-
-    if (round === 4 || round === 9) {
-
-      if (firstNameNum === "7") {
-        firstNameNumX = "13";
-      }
-      else if (firstNameNum === "8") {
-        firstNameNumX = "14";
-      }
-      else if (firstNameNum === "9") {
-        firstNameNumX = "15"
-      }
-
-      if (secondNameNum === "7") {
-        secondNameNumX = "13";
-      }
-      else if (secondNameNum === "8") {
-        secondNameNumX = "14";
-      }
-      else if (secondNameNum === "9") {
-        secondNameNumX = "15"
-      }
-    }
-
-    if (round === 5 || round === 10) {
-
-      if (firstNameNum === "10") {
-        firstNameNumX = "13";
-      }
-      else if (firstNameNum === "11") {
-        firstNameNumX = "14";
-      }
-      else if (firstNameNum === "12") {
-        firstNameNumX = "15"
-      }
-
-      if (secondNameNum === "10") {
-        secondNameNumX = "13";
-      }
-      else if (secondNameNum === "11") {
-        secondNameNumX = "14";
-      }
-      else if (secondNameNum === "12") {
-        secondNameNumX = "15"
-      }
-    }
-
-    
-    
-    // console.log("firstsecond", firstNameNumX, secondNameNumX);
-
-    return ([firstNameNumX, secondNameNumX]);
-  }
-
 
   const replacePlayerSorter = (round, firstNameNum, secondNameNum) => {
 
     if (tableUsed.length === 11) {
 
       if (extraPlayerCount === 1) {
-
         const [firstNameNumX, secondNameNumX] = change1PlayerTable12(round, firstNameNum, secondNameNum);
-        // console.log("got:", firstNameNum, secondNameNum);
-        // console.log("returning:", firstNameNumX, secondNameNumX);
         return [firstNameNumX, secondNameNumX];
-
       }
 
       else if (extraPlayerCount === 2) {
-
         const [firstNameNumX, secondNameNumX] = change2PlayerTable12(round, firstNameNum, secondNameNum);
-        console.log("Tadah2");
         return [firstNameNumX, secondNameNumX];
       }
 
       else if (extraPlayerCount === 3) {
-
         const [firstNameNumX, secondNameNumX] = change3PlayerTable12(round, firstNameNum, secondNameNum);
-        console.log("Tadah3");
         return [firstNameNumX, secondNameNumX];
-
       }
     
       else {
-        console.log("Do nothing");
+        return [firstNameNum, secondNameNum];
+      }
+    }
+
+    else if (tableUsed.length === 15) {
+      console.log("Did we get here?")
+      if (extraPlayerCount === 1) {
+        const [firstNameNumX, secondNameNumX] = change1PlayerTable16(round, firstNameNum, secondNameNum);
+        return [firstNameNumX, secondNameNumX];
+      }
+
+      else if (extraPlayerCount === 2) {
+        const [firstNameNumX, secondNameNumX] = change2PlayerTable16(round, firstNameNum, secondNameNum);
+        return [firstNameNumX, secondNameNumX];
+      }
+
+      else if (extraPlayerCount === 3) {
+        const [firstNameNumX, secondNameNumX] = change3PlayerTable16(round, firstNameNum, secondNameNum);
+        return [firstNameNumX, secondNameNumX];
+      }
+    
+      else {
         return [firstNameNum, secondNameNum];
       }
     }
@@ -394,8 +168,6 @@ function App() {
     )
   }
 
-
-
   const setNamesCallback = (names) => {
     setNames(["", ...names]);
   }
@@ -404,6 +176,7 @@ function App() {
     <ThemeProvider theme={theme}>
     <div className="App">
       <header className="App-header">
+        <div><p></p></div>
         <header>Best Doubles Sorter App Thingy EVAR</header>
         <header>(For 12 to 19 players)</header>
         <div style={{marginTop: "20px"}}></div>
