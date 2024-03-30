@@ -183,7 +183,7 @@ function App() {
 
         <PlayerNumberInput setPlayerCount={(x) => setPlayerCount(x)}/>
         <NamesInput setNamesCallback={(names) => setNamesCallback(names)} numberOfPlayers={playerCount} names={names}/>
-        <RoundInput setRound={(r) => setAmountOfRounds(r)}/>
+        <RoundInput setRound={(r) => setAmountOfRounds(r)} tableUsed={tableUsed}/>
 
         <Matches/>
 

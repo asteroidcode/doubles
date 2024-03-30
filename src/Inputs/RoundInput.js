@@ -5,7 +5,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
-export const RoundInput = ({setRound}) => {
+export const RoundInput = ({setRound, tableUsed}) => {
 
   const [roundNumber, setRoundNumber] = useState(1);
 
@@ -24,21 +24,11 @@ export const RoundInput = ({setRound}) => {
         label="Number of rounds"
         onChange={handleChange}
       >
-        <MenuItem value={1}>1</MenuItem>
-        <MenuItem value={2}>2</MenuItem>
-        <MenuItem value={3}>3</MenuItem>
-        <MenuItem value={4}>4</MenuItem>
-        <MenuItem value={5}>5</MenuItem>
-        <MenuItem value={6}>6</MenuItem>
-        <MenuItem value={7}>7</MenuItem>
-        <MenuItem value={8}>8</MenuItem>
-        <MenuItem value={9}>9</MenuItem>
-        <MenuItem value={10}>10</MenuItem>
-        <MenuItem value={11}>11</MenuItem>
-        <MenuItem value={12}>12</MenuItem>
-        <MenuItem value={13}>13</MenuItem>
-        <MenuItem value={14}>14</MenuItem>
-        <MenuItem value={15}>15</MenuItem>
+        {
+          tableUsed.map((tableRow, index) => {
+            return(<MenuItem value={index+1}>{index+1}</MenuItem>)
+          })
+        }
       </Select>
     </FormControl>
   )
