@@ -5,10 +5,10 @@ import { NamesNumberInput } from './NamesNumberInput';
 
 export const NamesInput = ({setNamesCallback}) => {
 
-  const [names, setNames] = useState(["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]);
+  const [names, setNames] = useState(["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]);
 
   useEffect(() => {
-    processParticipantNumberChange(16);
+    processParticipantNumberChange(19);
   }, []);
 
   useEffect(() => {

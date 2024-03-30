@@ -4,6 +4,7 @@ import React, {useState, useEffect} from 'react';
 import * as tables from './Tables/tables.js';
 import { RoundInput } from './Inputs/RoundInput';
 import { NamesInput } from './Inputs/NamesInput';
+import { PlayerNumberInput } from './Inputs/PlayerNumberInput.js';
 import {blue} from "@mui/material/colors";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 // import Button from '@mui/material/Button';
@@ -16,6 +17,7 @@ function App() {
 
   const [names, setNames] = useState([]);
 
+  const [playerCount, setPlayerCount] = useState(12);
 
   const [amountOfRounds, setAmountOfRounds] = useState(1);
   
@@ -40,7 +42,6 @@ function App() {
 
 
   const findNames = (slot) => {
-    console.log("slot", slot);
     const firstNameNum = slot.substring(0, slot.indexOf("-"));
     const secondNameNum = slot.slice(slot.indexOf('-') + 1);
     let firstName = names[firstNameNum];
@@ -54,26 +55,40 @@ function App() {
     return firstName + " & " + secondName;
   }
 
-  const Matches16 = () => {
+  const Matches = () => {
+
+    let table;
+
+    if (0 < playerCount && playerCount < 16) {
+      table = tables.tarr12;
+    }
+
+    if (15 < playerCount && playerCount < 20) {
+      table = tables.tarr16;
+    }
+
     return(
-    tables.tarr16.map((roundrow, index) => {
-      console.log("amountofrounds", amountOfRounds)
-      if (index < amountOfRounds) {
-        return (
-          roundrow.map((match, index2) => {
-            return(
-              <div key={"jtn2" + index + index2}>{(index2 === 0) ? <h2>Round {index +1}</h2> : null}
-              <p key={"jtn" + index}>Match {index2+1}: <br/> {roundrow[index2] && findNames(roundrow[index2][0]) + 
-                " vs " + findNames(roundrow[index2][1])}
-              </p>
-              </div>
-            )
-          }))
+      table.map((roundrow, index) => {
+        if (index < amountOfRounds) {
+          return (
+            roundrow.map((match, index2) => {
+              return(
+                <div key={"jtn2" + index + index2}>{(index2 === 0) ? <h2>Round {index +1}</h2> : null}
+                <p key={"jtn" + index}>Match {index2+1}: <br/> {roundrow[index2] && findNames(roundrow[index2][0]) + 
+                  " vs " + findNames(roundrow[index2][1])}
+                </p>
+                </div>
+              )
+            }))
+        }
+        else {
+          return null
+        }
+      })
+    )
   }
-else {
-  return null
-}}))
-  }
+
+
 
   const setNamesCallback = (names) => {
     setNames(["", ...names]);
@@ -84,13 +99,14 @@ else {
     <div className="App">
       <header className="App-header">
         <header>Best Doubles Sorter App Thingy EVAR</header>
-        <header>(For 16 players)</header>
+        <header>(For 12 to 19 players)</header>
         <div style={{marginTop: "20px"}}></div>
 
         <NamesInput setNamesCallback={(names) => setNamesCallback(names)}/>
+        <PlayerNumberInput setPlayerCount={(x) => setPlayerCount(x)}/>
         <RoundInput setRound={(r) => setAmountOfRounds(r)}/>
 
-        <Matches16/>
+        <Matches/>
 
         <p><br/><br/></p>
         <a
