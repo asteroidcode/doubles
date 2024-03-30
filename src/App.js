@@ -30,16 +30,6 @@ function App() {
     }
   })
 
-  /*
-  const setMatches12 = (arrRow) => {
-    if (arrRow === tables.arr12row1) {
-      setRound1([[tables.arr12row1[0], tables.arr12row1[1]], [tables.arr12row1[2], tables.arr12row1[3]], [tables.arr12row1[4], tables.arr12row1[5]]]);
-    }
-    if (arrRow === tables.arr12row2) {
-      setRound2([[tables.arr12row2[0], tables.arr12row2[1]], [tables.arr12row2[2], tables.arr12row2[3]], [tables.arr12row2[4], tables.arr12row2[5]]]);
-    }
-  }*/
-
 
   const findNames = (slot) => {
     const firstNameNum = slot.substring(0, slot.indexOf("-"));
