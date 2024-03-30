@@ -96,7 +96,7 @@ function App() {
     }
 
     else if (tableUsed.length === 15) {
-      console.log("Did we get here?")
+      // console.log("Did we get here?")
       if (extraPlayerCount === 1) {
         const [firstNameNumX, secondNameNumX] = change1PlayerTable16(round, firstNameNum, secondNameNum);
         return [firstNameNumX, secondNameNumX];
@@ -181,8 +181,8 @@ function App() {
         <header>(For 12 to 19 players)</header>
         <div style={{marginTop: "20px"}}></div>
 
-        <NamesInput setNamesCallback={(names) => setNamesCallback(names)}/>
         <PlayerNumberInput setPlayerCount={(x) => setPlayerCount(x)}/>
+        <NamesInput setNamesCallback={(names) => setNamesCallback(names)} numberOfPlayers={playerCount} names={names}/>
         <RoundInput setRound={(r) => setAmountOfRounds(r)}/>
 
         <Matches/>

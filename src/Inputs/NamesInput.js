@@ -3,13 +3,13 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { NamesNumberInput } from './NamesNumberInput';
 
-export const NamesInput = ({setNamesCallback}) => {
+export const NamesInput = ({setNamesCallback, numberOfPlayers, names2}) => {
 
-  const [names, setNames] = useState(["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]);
+  const [names, setNames] = useState(["", "", "", "", "", "", "", "", "", "", "", ""]);
 
   useEffect(() => {
-    processParticipantNumberChange(19);
-  }, []);
+    processParticipantNumberChange(numberOfPlayers);
+  }, [numberOfPlayers]);
 
   useEffect(() => {
     console.log("names", names);
@@ -35,17 +35,18 @@ export const NamesInput = ({setNamesCallback}) => {
       const namesShorterBy = nbr - newNames.length;
       // console.log("namesShorterBy", namesShorterBy);
       for (let i = 0; i < namesShorterBy; i++ ) {
-        newNames.push([""]);
+        newNames.push("");
       }
     }
     if (newNames.length > nbr) {
-      const namesLongerBy = newNames.length > nbr;
+      const namesLongerBy = newNames.length - nbr;
       for (let i = 0; i < namesLongerBy; i++) {
         newNames.pop();
       }
     }
     // console.log("newNames", newNames);
     setNames(newNames);
+    setNamesCallback(newNames);
   }
 
   return( <>
