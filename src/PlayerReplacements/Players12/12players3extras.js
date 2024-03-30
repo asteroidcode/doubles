@@ -35,20 +35,20 @@ export function change3PlayerTable12(round, firstNameNum, secondNameNum) {
       firstNameNumX = "13";
     }
     else if (firstNameNum === "5") {
-      firstNameNumX = "14";
+      firstNameNumX = "15";
     }
     else if (firstNameNum === "6") {
-      firstNameNumX = "15"
+      firstNameNumX = "14"
     }
 
     if (secondNameNum === "4") {
       secondNameNumX = "13";
     }
     else if (secondNameNum === "5") {
-      secondNameNumX = "14";
+      secondNameNumX = "15";
     }
     else if (secondNameNum === "6") {
-      secondNameNumX = "15"
+      secondNameNumX = "14"
     }
   }
 
@@ -78,20 +78,20 @@ export function change3PlayerTable12(round, firstNameNum, secondNameNum) {
   if (round === 5 || round === 10) {
 
     if (firstNameNum === "10") {
-      firstNameNumX = "13";
+      firstNameNumX = "14";
     }
     else if (firstNameNum === "11") {
-      firstNameNumX = "14";
+      firstNameNumX = "13";
     }
     else if (firstNameNum === "12") {
       firstNameNumX = "15"
     }
 
     if (secondNameNum === "10") {
-      secondNameNumX = "13";
+      secondNameNumX = "14";
     }
     else if (secondNameNum === "11") {
-      secondNameNumX = "14";
+      secondNameNumX = "13";
     }
     else if (secondNameNum === "12") {
       secondNameNumX = "15"

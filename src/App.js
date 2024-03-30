@@ -19,6 +19,8 @@ import { change3PlayerTable16 } from './PlayerReplacements/Players16/16player3ex
 
 function App() {
 
+  const versionType = { original: "original", default: "default", random: "random"};
+
   const prefersDarkMode = true; // useMediaQuery('(prefers-color-scheme: dark)');
 
   const [names, setNames] = useState([]);
@@ -30,13 +32,34 @@ function App() {
   
   const [tableUsed, setTableUsed] = useState(tables.tarr12);
 
+  const [tableVersion, setTableVersion] = useState(versionType.default);
+
+  const [random12, setRandom12] = useState(tables.tarr12);
+  const [random16, setRandom16] = useState(tables.tarr16);
+
   useEffect(() => {
     if (0 < playerCount && playerCount < 16) {
-      setTableUsed(tables.tarr12);
+      if (tableVersion === versionType.default) {
+        setTableUsed(tables.tarr12);
+      }
+      else if (tableVersion === versionType.original) {
+        setTableUsed(tables.tarr12original);
+      }
+      else {
+        setTableUsed(random12);
+      }
     }
 
     if (15 < playerCount && playerCount < 20) {
-      setTableUsed(tables.tarr16);
+      if (tableVersion === versionType.default) {
+        setTableUsed(tables.tarr16);
+      }
+      else if (tableVersion === versionType.original) {
+        setTableUsed(tables.tarr16original);
+      }
+      else {
+        setTableUsed(random16);
+      }
     }
 
     if (playerCount === 12 || playerCount === 16) {
@@ -55,7 +78,7 @@ function App() {
       setExtraPlayerCount(3);
     }
 
-  }, [playerCount]);
+  }, [playerCount, tableVersion, versionType]);
 
   useEffect(() => {
     console.log("extraPlayerCount", extraPlayerCount)

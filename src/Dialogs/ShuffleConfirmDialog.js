@@ -30,14 +30,14 @@ export const ShuffleConfirmDialog = ({isOpen, close, randomizeOrder}) => {
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            Do you want to randomize the order of the names?<br/> 
+            Do you want to randomise the order of the names?<br/> 
             This action cannot be undone.
           </DialogContentText>
         </DialogContent>
         <DialogActions>
           <Button variant="outlined" onClick={handleCloseNo} autoFocus>No</Button>&nbsp;&nbsp;&nbsp;&nbsp;
           <Button variant="outlined" onClick={handleCloseYes}>
-            Yes, randomize
+            Yes, randomise
           </Button>
         </DialogActions>
       </Dialog>
