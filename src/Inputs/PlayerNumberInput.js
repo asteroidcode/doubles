@@ -7,7 +7,7 @@ import Select from '@mui/material/Select';
 
 export const PlayerNumberInput = ({setPlayerCount}) => {
 
-  const [playerNumber, setPlayerNumber] = useState(1);
+  const [playerNumber, setPlayerNumber] = useState(12);
 
   const handleChange = (event) => {
     setPlayerNumber(event.target.value);
