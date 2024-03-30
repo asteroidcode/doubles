@@ -15,23 +15,4 @@ export const NamesNumberInput = ({setNamesNbr}) => {
   }
 
   return(null);
-  {/*
-  return(
-    <FormControl variant="filled" sx={{ m: 1, minWidth: 80}}>
-      <InputLabel id="names-number-insert">Participants</InputLabel>
-      <Select
-        labelId="names-number-label"
-        id="names-number-select"
-        value={namesNumber}
-        label="Number of names"
-        onChange={handleChange}
-      >
-        <MenuItem value={12}>12</MenuItem>
-        <MenuItem value={16}>16</MenuItem>
-        <MenuItem value={20}>20</MenuItem>
-        <MenuItem value={24}>24</MenuItem>
-      </Select>
-    </FormControl>
-  )
-  */}
 }

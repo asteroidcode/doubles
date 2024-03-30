@@ -202,7 +202,7 @@ function App() {
         <div id="namesList">
         {
           names.map((name, index) => { 
-            return index === 0 ? null : <Typography>{"Player " + index} {": " + name}</Typography>
+            return index === 0 ? null : <Typography key={"plainNames" + index}>{"Player " + index} {": " + name}</Typography>
           })
         }
         </div>

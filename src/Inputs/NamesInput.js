@@ -1,11 +1,15 @@
 import React, {useState, useEffect} from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 import { NamesNumberInput } from './NamesNumberInput';
+import { ShuffleConfirmDialog } from '../Dialogs/ShuffleConfirmDialog';
 
 export const NamesInput = ({setNamesCallback, numberOfPlayers, names2}) => {
 
   const [names, setNames] = useState(["", "", "", "", "", "", "", "", "", "", "", ""]);
+
+  const [shuffleConfirmOpen, setShuffleConfirmOpen] = useState(false);
 
   useEffect(() => {
     processParticipantNumberChange(numberOfPlayers);
@@ -49,7 +53,30 @@ export const NamesInput = ({setNamesCallback, numberOfPlayers, names2}) => {
     setNamesCallback(newNames);
   }
 
+  // thanks for the shuffle example to Grant Riordan https://www.freecodecamp.org/news/how-to-shuffle-an-array-of-items-using-javascript-or-typescript/
+  const shuffle = (array) => { 
+    for (let i = array.length - 1; i > 0; i--) { 
+      const j = Math.floor(Math.random() * (i + 1)); 
+      [array[i], array[j]] = [array[j], array[i]]; 
+    } 
+    return array; 
+  }; 
+
+  const randomizeNamesOrder = () => {
+    let newNames = [...names];
+    const shuffledNames = shuffle(newNames);
+
+    setNames(shuffledNames);
+    setNamesCallback(shuffledNames);
+  }
+  const closeShuffleDialog = () => {
+    setShuffleConfirmOpen(false);
+  }
+
   return( <>
+  <p></p>
+  <Button onClick={() => setShuffleConfirmOpen(true)} variant="outlined">Randomize Player Order</Button>
+  <ShuffleConfirmDialog isOpen={shuffleConfirmOpen} close={closeShuffleDialog} randomizeOrder={randomizeNamesOrder}/>
   <NamesNumberInput setNamesNbr={(nbr) => processParticipantNumberChange(nbr)}/>
   <Box
     component="form"
@@ -61,7 +88,7 @@ export const NamesInput = ({setNamesCallback, numberOfPlayers, names2}) => {
   >
     {names.map((name, index) => {
       return(
-        <div key={"jtn" + index}>
+        <div key={"namesInputs" + index}>
         
         <TextField 
           color="primary"
