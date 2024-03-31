@@ -5,7 +5,7 @@ import * as tables from '../Tables/tables.js';
 import { cloneDeep } from 'lodash';
 import { ConfirmDialog } from '../Dialogs/ConfirmDialog.js';
 import { styled } from '@mui/material';
-import { green, blue, purple, orange, grey } from '@mui/material/colors';
+import { green, blue, orange } from '@mui/material/colors';
 
 export const RandomizeTable = ({setTableVersion, setRandom12, setRandom16, setRandomiseAgain}) => {
 

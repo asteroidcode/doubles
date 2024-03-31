@@ -229,15 +229,7 @@ function App() {
 
         <Matches/>
 
-        <p><br/><br/></p>
-        <a
-          className="App-link"
-          href="https://fr.wikipedia.org/wiki/Table_de_Berger"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Based on Berger's Tables
-        </a>
+        
         
         <p><br/><br/></p>
         
@@ -248,6 +240,15 @@ function App() {
           })
         }
         </div>
+        <p><br/><br/></p>
+        <a
+          className="App-link"
+          href="https://fr.wikipedia.org/wiki/Table_de_Berger"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Based on Berger's Tables
+        </a>
         <p>
         </p>
       </header>
