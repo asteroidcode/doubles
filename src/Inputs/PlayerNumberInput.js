@@ -16,12 +16,12 @@ export const PlayerNumberInput = ({setPlayerCount}) => {
 
   return(
     <FormControl variant="filled" sx={{ m: 1, minWidth: 80}} style={{marginTop: "40px"}}>
-      <InputLabel id="round-number-insert">Players</InputLabel>
+      <InputLabel id="player-number-insert">Players</InputLabel>
       <Select
-        labelId="round-number-label"
-        id="round-number-select"
+        labelId="player-number-label"
+        id="player-number-select"
         value={playerNumber}
-        label="Number of rounds"
+        label="Number of players"
         onChange={handleChange}
       >
         <MenuItem value={12}>12</MenuItem>

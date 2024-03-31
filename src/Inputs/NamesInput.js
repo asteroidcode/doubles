@@ -75,7 +75,8 @@ export const NamesInput = ({setNamesCallback, numberOfPlayers, names2}) => {
 
   return( <>
   <p></p>
-  <Button onClick={() => setShuffleConfirmOpen(true)} variant="outlined">Randomize Player Order</Button>
+  <Button onClick={() => setShuffleConfirmOpen(true)} variant="contained">Randomise Player Order</Button>
+  <p></p>
   <ShuffleConfirmDialog isOpen={shuffleConfirmOpen} close={closeShuffleDialog} randomizeOrder={randomizeNamesOrder}/>
   <NamesNumberInput setNamesNbr={(nbr) => processParticipantNumberChange(nbr)}/>
   <Box

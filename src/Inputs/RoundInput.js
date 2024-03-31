@@ -15,7 +15,7 @@ export const RoundInput = ({setRound, tableUsed}) => {
   }
 
   return(
-    <FormControl variant="filled" sx={{ m: 1, minWidth: 80}} style={{marginTop: "40px"}}>
+    <FormControl variant="filled" sx={{ m: 1, minWidth: 80}} style={{marginTop: "70px"}}>
       <InputLabel id="round-number-insert">Rounds</InputLabel>
       <Select
         labelId="round-number-label"
@@ -26,7 +26,7 @@ export const RoundInput = ({setRound, tableUsed}) => {
       >
         {
           tableUsed.map((tableRow, index) => {
-            return(<MenuItem value={index+1}>{index+1}</MenuItem>)
+            return(<MenuItem key={"menuitem" + tableRow + index} value={index+1}>{index+1}</MenuItem>)
           })
         }
       </Select>

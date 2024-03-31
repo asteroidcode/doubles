@@ -5,7 +5,7 @@ import * as tables from './Tables/tables.js';
 import { RoundInput } from './Inputs/RoundInput';
 import { NamesInput } from './Inputs/NamesInput';
 import { PlayerNumberInput } from './Inputs/PlayerNumberInput.js';
-import {blue} from "@mui/material/colors";
+import {blue, purple} from "@mui/material/colors";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 // import Button from '@mui/material/Button';
 import { Typography } from '@mui/material';
@@ -17,9 +17,15 @@ import { change1PlayerTable16 } from './PlayerReplacements/Players16/16player1ex
 import { change2PlayerTable16 } from './PlayerReplacements/Players16/16player2extras.js';
 import { change3PlayerTable16 } from './PlayerReplacements/Players16/16player3extras.js';
 
-function App() {
+import { RandomizeTable } from './Inputs/RandomizeTable.js';
 
-  const versionType = { original: "original", default: "default", random: "random"};
+import Fab from '@mui/material/Fab';
+import NavigationIcon from '@mui/icons-material/Navigation';
+
+export const versionType = { original: "original", default: "default", random: "random"};
+
+
+function App() {
 
   const prefersDarkMode = true; // useMediaQuery('(prefers-color-scheme: dark)');
 
@@ -37,9 +43,12 @@ function App() {
   const [random12, setRandom12] = useState(tables.tarr12);
   const [random16, setRandom16] = useState(tables.tarr16);
 
+  const [randomiseAgain, setRandomiseAgain] = useState(false);
+
   useEffect(() => {
     if (0 < playerCount && playerCount < 16) {
       if (tableVersion === versionType.default) {
+        console.log("does this get triggered")
         setTableUsed(tables.tarr12);
       }
       else if (tableVersion === versionType.original) {
@@ -78,7 +87,8 @@ function App() {
       setExtraPlayerCount(3);
     }
 
-  }, [playerCount, tableVersion, versionType]);
+    setRandomiseAgain(false);
+  }, [playerCount, tableVersion, versionType, randomiseAgain]);
 
   useEffect(() => {
     console.log("extraPlayerCount", extraPlayerCount)
@@ -89,6 +99,9 @@ function App() {
       mode: prefersDarkMode ? 'dark' : 'light',
       primary: {
         main: blue[500]
+      },
+      secondary: {
+        main: purple[500]
       }
     }
   })
@@ -207,6 +220,12 @@ function App() {
         <PlayerNumberInput setPlayerCount={(x) => setPlayerCount(x)}/>
         <NamesInput setNamesCallback={(names) => setNamesCallback(names)} numberOfPlayers={playerCount} names={names}/>
         <RoundInput setRound={(r) => setAmountOfRounds(r)} tableUsed={tableUsed}/>
+        <RandomizeTable 
+          setTableVersion={(versionType) => setTableVersion(versionType)} 
+          setRandom12={setRandom12} 
+          setRandom16={setRandom16}
+          setRandomiseAgain={(bool) => setRandomiseAgain(bool)}
+        />
 
         <Matches/>
 

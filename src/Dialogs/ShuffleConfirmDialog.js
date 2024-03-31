@@ -5,6 +5,8 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import { styled } from '@mui/material';
+import { purple, blue } from '@mui/material/colors';
 
 export const ShuffleConfirmDialog = ({isOpen, close, randomizeOrder}) => {
 
@@ -17,6 +19,14 @@ export const ShuffleConfirmDialog = ({isOpen, close, randomizeOrder}) => {
     close();
   };
 
+  const ColorButton = styled(Button)(({ theme }) => ({
+    color: theme.palette.getContrastText(blue[500]),
+    backgroundColor: blue[500],
+    '&:hover': {
+      backgroundColor: blue[700],
+    },
+  }));
+
   return (
     <React.Fragment>
       <Dialog
@@ -24,20 +34,25 @@ export const ShuffleConfirmDialog = ({isOpen, close, randomizeOrder}) => {
         onClose={handleCloseNo}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
+        PaperProps={{
+          style: {
+            backgroundColor: blue[400]
+          }
+        }}
       >
         <DialogTitle id="alert-dialog-title">
-          {"Randomize names order?"}
+          {"Randomise names order?"}
         </DialogTitle>
         <DialogContent>
-          <DialogContentText id="alert-dialog-description">
+          <DialogContentText style={{color: "#ffffff"}} id="alert-dialog-description">
             Do you want to randomise the order of the names?<br/> 
             This action cannot be undone.
           </DialogContentText>
         </DialogContent>
-        <DialogActions>
-          <Button variant="outlined" onClick={handleCloseNo} autoFocus>No</Button>&nbsp;&nbsp;&nbsp;&nbsp;
-          <Button variant="outlined" onClick={handleCloseYes}>
-            Yes, randomise
+        <DialogActions style={{margin: "auto", marginBottom:"10px"}}>
+          <ColorButton variant="contained" color="warning" onClick={handleCloseNo} autoFocus>Noooo</ColorButton>&nbsp;&nbsp;
+          <Button variant="contained" color="warning" onClick={handleCloseYes}>
+            Yes, randomise names
           </Button>
         </DialogActions>
       </Dialog>
