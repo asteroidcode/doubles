@@ -7,7 +7,7 @@ import { ConfirmDialog } from '../Dialogs/ConfirmDialog.js';
 import { styled } from '@mui/material';
 import { green, blue, orange } from '@mui/material/colors';
 
-export const RandomizeTable = ({setTableVersion, setRandom12, setRandom16, setRandomiseAgain}) => {
+export const RandomizeTable = ({setTableVersion, setRandom12, setRandom16, setRandom20, setRandom24, setRandomiseAgain}) => {
 
   const randomizeTable = () => {
     setRandomiseAgain(true);
@@ -15,9 +15,13 @@ export const RandomizeTable = ({setTableVersion, setRandom12, setRandom16, setRa
 
     const newCopyTarr12 = cloneDeep(tables.tarr12);
     const newCopyTarr16 = cloneDeep(tables.tarr16);
+    const newCopyTarr20 = cloneDeep(tables.tarr20);
+    const newCopyTarr24 = cloneDeep(tables.tarr24);
 
     setRandom12(shuffle(newCopyTarr12));
     setRandom16(shuffle(newCopyTarr16));
+    setRandom20(shuffle(newCopyTarr20));
+    setRandom24(shuffle(newCopyTarr24));
   }
 
   const useDefaultTable = () => {

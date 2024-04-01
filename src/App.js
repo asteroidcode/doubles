@@ -10,17 +10,26 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 // import Button from '@mui/material/Button';
 import { Typography } from '@mui/material';
 // import useMediaQuery from '@mui/material/useMediaQuery';
-import { change3PlayerTable12 } from './PlayerReplacements/Players12/12players3extras.js';
-import { change2PlayerTable12 } from './PlayerReplacements/Players12/12players2extras.js'
 import { change1PlayerTable12 } from './PlayerReplacements/Players12/12player1extra.js';
+import { change2PlayerTable12 } from './PlayerReplacements/Players12/12players2extras.js'
+import { change3PlayerTable12 } from './PlayerReplacements/Players12/12players3extras.js';
+
 import { change1PlayerTable16 } from './PlayerReplacements/Players16/16player1extra.js';
 import { change2PlayerTable16 } from './PlayerReplacements/Players16/16player2extras.js';
 import { change3PlayerTable16 } from './PlayerReplacements/Players16/16player3extras.js';
 
+import { change1PlayerTable20 } from './PlayerReplacements/Players20/20player1extra.js';
+import { change2PlayerTable20 } from './PlayerReplacements/Players20/20players2extras.js';
+import { change3PlayerTable20 } from './PlayerReplacements/Players20/20players3extras.js';
+
+import { change1PlayerTable24 } from './PlayerReplacements/Players24/24player1extra.js';
+import { change2PlayerTable24 } from './PlayerReplacements/Players24/24players2extras.js';
+import { change3PlayerTable24 } from './PlayerReplacements/Players24/24players3extras.js';
+
 import { RandomizeTable } from './Inputs/RandomizeTable.js';
 
-import Fab from '@mui/material/Fab';
-import NavigationIcon from '@mui/icons-material/Navigation';
+// import Fab from '@mui/material/Fab';
+// import NavigationIcon from '@mui/icons-material/Navigation';
 
 export const versionType = { original: "original", default: "default", random: "random"};
 
@@ -42,6 +51,8 @@ function App() {
 
   const [random12, setRandom12] = useState(tables.tarr12);
   const [random16, setRandom16] = useState(tables.tarr16);
+  const [random20, setRandom20] = useState(tables.tarr20);
+  const [random24, setRandom24] = useState(tables.tarr24);
 
   const [randomiseAgain, setRandomiseAgain] = useState(false);
 
@@ -71,19 +82,43 @@ function App() {
       }
     }
 
-    if (playerCount === 12 || playerCount === 16) {
+    if (19 < playerCount && playerCount < 24) {
+      if (tableVersion === versionType.default) {
+        setTableUsed(tables.tarr20);
+      }
+      else if (tableVersion === versionType.original) {
+        setTableUsed(tables.tarr20original);
+      }
+      else {
+        setTableUsed(random20);
+      }
+    }
+
+    if (23 < playerCount && playerCount < 28) {
+      if (tableVersion === versionType.default) {
+        setTableUsed(tables.tarr24);
+      }
+      else if (tableVersion === versionType.original) {
+        setTableUsed(tables.tarr24original);
+      }
+      else {
+        setTableUsed(random24);
+      }
+    }
+
+    if (playerCount === 12 || playerCount === 16 || playerCount === 20 || playerCount === 24) {
       setExtraPlayerCount(0);
     }
 
-    if (playerCount === 13 || playerCount === 17) {
+    if (playerCount === 13 || playerCount === 17 || playerCount === 21 || playerCount === 25) {
       setExtraPlayerCount(1);
     }
 
-    if (playerCount === 14 || playerCount === 18) {
+    if (playerCount === 14 || playerCount === 18 || playerCount === 22 || playerCount === 26) {
       setExtraPlayerCount(2);
     }
 
-    if (playerCount === 15 || playerCount === 19) {
+    if (playerCount === 15 || playerCount === 19 || playerCount === 23 || playerCount === 27) {
       setExtraPlayerCount(3);
     }
 
@@ -145,6 +180,48 @@ function App() {
 
       else if (extraPlayerCount === 3) {
         const [firstNameNumX, secondNameNumX] = change3PlayerTable16(round, firstNameNum, secondNameNum);
+        return [firstNameNumX, secondNameNumX];
+      }
+    
+      else {
+        return [firstNameNum, secondNameNum];
+      }
+    }
+    else if (tableUsed.length === 19) {
+      // console.log("Did we get here?")
+      if (extraPlayerCount === 1) {
+        const [firstNameNumX, secondNameNumX] = change1PlayerTable20(round, firstNameNum, secondNameNum);
+        return [firstNameNumX, secondNameNumX];
+      }
+
+      else if (extraPlayerCount === 2) {
+        const [firstNameNumX, secondNameNumX] = change2PlayerTable20(round, firstNameNum, secondNameNum);
+        return [firstNameNumX, secondNameNumX];
+      }
+
+      else if (extraPlayerCount === 3) {
+        const [firstNameNumX, secondNameNumX] = change3PlayerTable20(round, firstNameNum, secondNameNum);
+        return [firstNameNumX, secondNameNumX];
+      }
+    
+      else {
+        return [firstNameNum, secondNameNum];
+      }
+    }
+    else if (tableUsed.length === 23) {
+      // console.log("Did we get here?")
+      if (extraPlayerCount === 1) {
+        const [firstNameNumX, secondNameNumX] = change1PlayerTable24(round, firstNameNum, secondNameNum);
+        return [firstNameNumX, secondNameNumX];
+      }
+
+      else if (extraPlayerCount === 2) {
+        const [firstNameNumX, secondNameNumX] = change2PlayerTable24(round, firstNameNum, secondNameNum);
+        return [firstNameNumX, secondNameNumX];
+      }
+
+      else if (extraPlayerCount === 3) {
+        const [firstNameNumX, secondNameNumX] = change3PlayerTable24(round, firstNameNum, secondNameNum);
         return [firstNameNumX, secondNameNumX];
       }
     
@@ -214,7 +291,7 @@ function App() {
       <header className="App-header">
         <div><p></p></div>
         <header>Best Doubles Sorter App Thingy EVAR</header>
-        <header>(For 12 to 19 players)</header>
+        <header>(For 12 to 27 players)</header>
         <div style={{marginTop: "20px"}}></div>
 
         <PlayerNumberInput setPlayerCount={(x) => setPlayerCount(x)}/>
@@ -224,6 +301,8 @@ function App() {
           setTableVersion={(versionType) => setTableVersion(versionType)} 
           setRandom12={setRandom12} 
           setRandom16={setRandom16}
+          setRandom20={setRandom20}
+          setRandom24={setRandom24}
           setRandomiseAgain={(bool) => setRandomiseAgain(bool)}
         />
 
