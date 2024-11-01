@@ -69,9 +69,10 @@ export const RandomizeTable = ({setTableVersion, setRandom12, setRandom16, setRa
     <>
       <ConfirmDialog/>
       <p></p>
-      <ColorButton2 variant="contained" onClick={useDefaultTable} style={{marginTop: "40px"}}>Use default round order</ColorButton2>
+      {/*<ColorButton2 variant="contained" onClick={useDefaultTable} style={{marginTop: "40px"}}>Use default round order</ColorButton2>
       <ColorButton variant="contained" onClick={randomizeTable} color="secondary" style={{marginTop: "15px"}}>Randomise round order</ColorButton>
       <ColorButton3 variant="contained" onClick={useOriginalTable} color="primary" style={{marginTop: "15px"}}>Use boring round order</ColorButton3>
+      */}
       <p></p>
     </>
   )
