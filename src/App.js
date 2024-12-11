@@ -295,8 +295,8 @@ function App() {
       
       <header className="App-header">
         <div><p></p></div>
-        <header>Let's Sort the Players!</header>
-        <p>(For 12 to 27 players)</p>
+        <header><h2>Let's Sort the Players!</h2><h3>(For 12 to 27 players)</h3></header>
+        
         <IconButton onClick={() => setInfoOpen(true)}><HelpCenterIcon/></IconButton>
         <InfoDialog isOpen={infoOpen} close={() => setInfoOpen(false)}/>
         <div style={{marginTop: "20px"}}></div>
