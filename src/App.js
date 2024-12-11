@@ -291,7 +291,7 @@ function App() {
       <header className="App-header">
         <div><p></p></div>
         <header>Let's Sort the Players!</header>
-        <header>(For 12 to 27 players)</header>
+        <p>(For 12 to 27 players)</p>
         <div style={{marginTop: "20px"}}></div>
 
         <PlayerNumberInput setPlayerCount={(x) => setPlayerCount(x)}/>
