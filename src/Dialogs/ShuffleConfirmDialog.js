@@ -6,7 +6,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { styled } from '@mui/material';
-import { purple, blue, green } from '@mui/material/colors';
+import { purple, blue, green, orange, pink } from '@mui/material/colors';
 
 export const ShuffleConfirmDialog = ({isOpen, close, randomizeOrder}) => {
 
@@ -21,9 +21,17 @@ export const ShuffleConfirmDialog = ({isOpen, close, randomizeOrder}) => {
 
   const ColorButton = styled(Button)(({ theme }) => ({
     color: theme.palette.getContrastText(green[500]),
-    backgroundColor: green[500],
+    backgroundColor: pink[500],
     '&:hover': {
-      backgroundColor: green[700],
+      backgroundColor: pink[700],
+    },
+  }));
+
+  const YesButton = styled(Button)(({ theme }) => ({
+    color: theme.palette.getContrastText(green[500]),
+    backgroundColor: orange[500],
+    '&:hover': {
+      backgroundColor: orange[700],
     },
   }));
 
@@ -36,12 +44,12 @@ export const ShuffleConfirmDialog = ({isOpen, close, randomizeOrder}) => {
         aria-describedby="alert-dialog-description"
         PaperProps={{
           style: {
-            backgroundColor: blue[400]
+            backgroundColor: orange[400]
           }
         }}
       >
         <DialogTitle id="alert-dialog-title">
-          {"Randomise names order?"}
+          {"Randomise the order of the names?"}
         </DialogTitle>
         <DialogContent>
           <DialogContentText style={{color: "#ffffff"}} id="alert-dialog-description">
@@ -50,10 +58,10 @@ export const ShuffleConfirmDialog = ({isOpen, close, randomizeOrder}) => {
           </DialogContentText>
         </DialogContent>
         <DialogActions style={{margin: "auto", marginBottom:"10px"}}>
-          <ColorButton variant="contained" color="warning" onClick={handleCloseNo} autoFocus>Noooo</ColorButton>&nbsp;&nbsp;
-          <Button variant="contained" color="warning" onClick={handleCloseYes}>
+          <ColorButton variant="contained" color="warning" onClick={handleCloseNo} autoFocus>No</ColorButton>&nbsp;&nbsp;
+          <YesButton variant="contained" color="warning" onClick={handleCloseYes}>
             Yes, randomise names
-          </Button>
+          </YesButton>
         </DialogActions>
       </Dialog>
     </React.Fragment>

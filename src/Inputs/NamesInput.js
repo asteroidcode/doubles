@@ -4,6 +4,8 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { NamesNumberInput } from './NamesNumberInput';
 import { ShuffleConfirmDialog } from '../Dialogs/ShuffleConfirmDialog';
+import { styled } from '@mui/material';
+import { purple, blue, green, orange, pink } from '@mui/material/colors';
 
 export const NamesInput = ({setNamesCallback, numberOfPlayers, names2}) => {
 
@@ -73,9 +75,17 @@ export const NamesInput = ({setNamesCallback, numberOfPlayers, names2}) => {
     setShuffleConfirmOpen(false);
   }
 
+  const RandomiseButton = styled(Button)(({ theme }) => ({
+    color: theme.palette.getContrastText(purple[500]),
+    backgroundColor: pink[500],
+    '&:hover': {
+      backgroundColor: pink[700],
+    },
+  }));
+
   return( <>
   <p></p>
-  <Button onClick={() => setShuffleConfirmOpen(true)} variant="contained">Randomise Player Order</Button>
+  <RandomiseButton onClick={() => setShuffleConfirmOpen(true)} variant="contained">Randomise Player Order</RandomiseButton>
   <p></p>
   <ShuffleConfirmDialog isOpen={shuffleConfirmOpen} close={closeShuffleDialog} randomizeOrder={randomizeNamesOrder}/>
   <NamesNumberInput setNamesNbr={(nbr) => processParticipantNumberChange(nbr)}/>
