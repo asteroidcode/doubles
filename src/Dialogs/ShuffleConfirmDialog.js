@@ -44,7 +44,7 @@ export const ShuffleConfirmDialog = ({isOpen, close, randomizeOrder}) => {
         aria-describedby="alert-dialog-description"
         PaperProps={{
           style: {
-            backgroundColor: orange[400]
+            backgroundColor: orange[500]
           }
         }}
       >
