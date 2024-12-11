@@ -27,9 +27,11 @@ import { change2PlayerTable24 } from './PlayerReplacements/Players24/24players2e
 import { change3PlayerTable24 } from './PlayerReplacements/Players24/24players3extras.js';
 
 import { RandomizeTable } from './Inputs/RandomizeTable.js';
-
+import IconButton from '@mui/material/IconButton';
+import HelpCenterIcon from '@mui/icons-material/HelpCenter';
 // import Fab from '@mui/material/Fab';
 // import NavigationIcon from '@mui/icons-material/Navigation';
+import { InfoDialog } from './Dialogs/InfoDialog';
 
 export const versionType = { original: "original", default: "default", random: "random"};
 
@@ -256,6 +258,8 @@ function App() {
     return firstName + " & " + secondName + firstOut + secondOut;
   }
 
+  const [infoOpen, setInfoOpen] = useState(false);
+
   const Matches = () => {
 
     let table = tableUsed;
@@ -288,10 +292,13 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
     <div className="App">
+      
       <header className="App-header">
         <div><p></p></div>
         <header>Let's Sort the Players!</header>
         <p>(For 12 to 27 players)</p>
+        <IconButton onClick={() => setInfoOpen(true)}><HelpCenterIcon/></IconButton>
+        <InfoDialog isOpen={infoOpen} close={() => setInfoOpen(false)}/>
         <div style={{marginTop: "20px"}}></div>
 
         <PlayerNumberInput setPlayerCount={(x) => setPlayerCount(x)}/>
