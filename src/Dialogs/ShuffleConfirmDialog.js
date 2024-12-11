@@ -20,7 +20,7 @@ export const ShuffleConfirmDialog = ({isOpen, close, randomizeOrder}) => {
   };
 
   const ColorButton = styled(Button)(({ theme }) => ({
-    color: theme.palette.getContrastText(green[500]),
+    color: theme.palette.getContrastText(pink[500]),
     backgroundColor: pink[500],
     '&:hover': {
       backgroundColor: pink[700],
@@ -28,10 +28,10 @@ export const ShuffleConfirmDialog = ({isOpen, close, randomizeOrder}) => {
   }));
 
   const YesButton = styled(Button)(({ theme }) => ({
-    color: theme.palette.getContrastText(green[500]),
-    backgroundColor: orange[500],
+    color: theme.palette.getContrastText(pink[500]),
+    backgroundColor: orange[700],
     '&:hover': {
-      backgroundColor: orange[700],
+      backgroundColor: orange[800],
     },
   }));
 
