@@ -6,7 +6,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { styled } from '@mui/material';
-import { purple, blue } from '@mui/material/colors';
+import { purple, blue, green } from '@mui/material/colors';
 
 export const ShuffleConfirmDialog = ({isOpen, close, randomizeOrder}) => {
 
@@ -20,10 +20,10 @@ export const ShuffleConfirmDialog = ({isOpen, close, randomizeOrder}) => {
   };
 
   const ColorButton = styled(Button)(({ theme }) => ({
-    color: theme.palette.getContrastText(blue[500]),
-    backgroundColor: blue[500],
+    color: theme.palette.getContrastText(green[500]),
+    backgroundColor: green[500],
     '&:hover': {
-      backgroundColor: blue[700],
+      backgroundColor: green[700],
     },
   }));
 

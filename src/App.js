@@ -5,7 +5,7 @@ import * as tables from './Tables/tables.js';
 import { RoundInput } from './Inputs/RoundInput';
 import { NamesInput } from './Inputs/NamesInput';
 import { PlayerNumberInput } from './Inputs/PlayerNumberInput.js';
-import {blue, purple} from "@mui/material/colors";
+import {green, blue, purple} from "@mui/material/colors";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 // import Button from '@mui/material/Button';
 import { Typography } from '@mui/material';
@@ -133,7 +133,7 @@ function App() {
     palette: {
       mode: prefersDarkMode ? 'dark' : 'light',
       primary: {
-        main: blue[500]
+        main: purple[500]
       },
       secondary: {
         main: purple[500]
@@ -290,7 +290,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <div><p></p></div>
-        <header>Best Doubles Sorter App Thingy EVAR</header>
+        <header>Let's Sort the Players!</header>
         <header>(For 12 to 27 players)</header>
         <div style={{marginTop: "20px"}}></div>
 

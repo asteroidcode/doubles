@@ -21,11 +21,14 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: white; 
+  background-image: linear-gradient(to left bottom, #f89b54, #ff7c59, #ff596b, #ff3286, #eb12a9);
+  /*background-image: linear-gradient(to left bottom, #f0802b, #ff6243, #ff4060, #ff1c83, #eb12a9);
+  background-image: linear-gradient(to left bottom, #f8d42b, #ffa42c, #ff6d50, #ff327b, #eb12a9);*/
 }
 
 .App-link {
-  color: #61dafb;
+    color:   	#FFD700 /* #4FFFB0; */
 }
 
 @keyframes App-logo-spin {
